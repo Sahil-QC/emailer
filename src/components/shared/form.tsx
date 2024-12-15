@@ -63,7 +63,7 @@ export function EmailForm() {
       { ...values, receiversEmails: emails },
       {
         onSuccess: (opts) => {
-          toast.success(opts.message);
+          toast.success(opts?.message);
           form.reset();
           setEmails([]);
         },
