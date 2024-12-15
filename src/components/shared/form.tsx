@@ -35,6 +35,11 @@ import { Label } from "../ui/label";
 import { LoadingButton } from "../ui/loading-button";
 
 const DEPARTMENT = ["FF&A", "MEDICAL BILLING", "HR", "IT"];
+const MANAGER_EMAILS = [
+  "am@qualicentric.com",
+  "ga@qualicentric.com",
+  "lovkesh@qualicentric.com",
+];
 
 export function EmailForm() {
   const [emails, setEmails] = useState<string[]>([]);
@@ -50,7 +55,7 @@ export function EmailForm() {
 
   const onSubmit = (values: z.infer<typeof emailFormSchema>) => {
     if (emails.length === 0) {
-      toast.warning("please add atleast a single email address.");
+      toast.warning("Please add at least one email address.");
       return;
     }
 
@@ -60,6 +65,7 @@ export function EmailForm() {
         onSuccess: (opts) => {
           toast.success(opts.message);
           form.reset();
+          setEmails([]);
         },
         onError: (opts) => {
           toast.error(opts.message);
@@ -167,6 +173,31 @@ export function EmailForm() {
                   </SelectTrigger>
                   <SelectContent>
                     {DEPARTMENT.map((item, idx) => (
+                      <SelectItem key={idx} value={item}>
+                        {item}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="managerEmail"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Manager Email</FormLabel>
+              <FormControl>
+                {/* <Input placeholder="eg: medical billing" {...field} /> */}
+                <Select onValueChange={field.onChange} value={field.value}>
+                  <SelectTrigger className="w-full">
+                    <SelectValue placeholder="select manager email" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {MANAGER_EMAILS.map((item, idx) => (
                       <SelectItem key={idx} value={item}>
                         {item}
                       </SelectItem>

@@ -9,6 +9,11 @@ const emailFormSchema = z.object({
   managerName: z
     .string()
     .min(1, { message: "Manager name must be of 1 character" }),
+  managerEmail: z.enum([
+    "am@qualicentric.com",
+    "ga@qualicentric.com",
+    "lovkesh@qualicentric.com",
+  ]),
 });
 
 export default emailFormSchema;
