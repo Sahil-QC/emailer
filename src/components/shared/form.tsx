@@ -42,7 +42,7 @@ const MANAGER_EMAILS = [
 ];
 
 export function EmailForm() {
-  const [emails, setEmails] = useState<string[]>([]);
+  const [emails, setEmails] = useState<string[]>(["hr@qualicentric.com","Atul@qualicentric.com"]);
   const { mutate: sendMail, isPending } = api.email.sendMail.useMutation();
 
   const form = useForm<z.infer<typeof emailFormSchema>>({
