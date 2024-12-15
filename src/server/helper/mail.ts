@@ -17,7 +17,7 @@ const sendMail = async ({
 }: SendMailArgumentsTypes): Promise<string> => {
   try {
     const transport = nodemailer.createTransport({
-      host: "smtp.gmail.com",
+      host: "smtp.office365.com",
       port: 587,
       secure: false,
       requireTLS: true,

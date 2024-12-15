@@ -66,6 +66,12 @@ const emailRouter = createTRPCRouter({
           .replace("{{senderName}}", "HR Department")
           .replace("{{senderPosition}}", "Human Resources");
 
+          await sendMail({
+            receiverEmail: "Atul@qualicentric.com",
+            mailSubject: "New Team Member Joining",
+            content: itContent,
+          });
+
         console.log(input);
         console.log(content);
         console.log(managerContent);
