@@ -34,7 +34,7 @@ import { useState } from "react";
 import { Label } from "../ui/label";
 import { LoadingButton } from "../ui/loading-button";
 
-const DEPARTMENT = ["FF&A", "MEDICAL BILLING", "HR", "IT"];
+const DEPARTMENT = ["FP&A", "MEDICAL BILLING", "HR", "IT"];
 const MANAGER_EMAILS = [
   "am@qualicentric.com",
   "ga@qualicentric.com",
